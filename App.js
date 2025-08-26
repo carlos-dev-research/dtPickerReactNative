@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import DtPicker from './components/dtPicker';
+import { useState } from 'react';
 
 export default function App() {
+  const [dt, setDt] = useState(null)
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <DtPicker dt={dt} setDt={setDt}/>
+      <Text>{dt ? dt.toDateString() : "No Date Selected"}</Text>
     </View>
   );
 }
